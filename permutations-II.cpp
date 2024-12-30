@@ -26,6 +26,8 @@ public:
       result.push_back(current_permutations);
       return;
     }
+
+    //Sort and Skip duplicate choices
     for (int i = 0; i < nums.size(); i++) {
       if (used[i] || (i > 0 && nums[i] == nums[i - 1] && !used[i - 1])) {
         continue;

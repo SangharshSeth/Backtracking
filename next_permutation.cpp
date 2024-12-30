@@ -23,6 +23,7 @@ While the next permutation of arr = [3,2,1] is [1,2,3] because [3,2,1] does not
 have a lexicographical larger rearrangement. Given an array of integers nums,
 find the next permutation of nums.
 */
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -62,11 +63,20 @@ vector<int> next_permutation(vector<int> &num) {
             slightly_bigger_position = i;
         }
     }
-
     // swap the elements in index pivot_index and slighly_bigger_position
     swap(num[pivot_position], num[slightly_bigger_position]);
 
-    reverse(num.begin() + pivot_position, num.end());
+    reverse(num.begin() + pivot_position + 1, num.end());
 
     return num;
+}
+
+int main() {
+    vector<int> num = {1, 2, 3};
+    vector<int> result = next_permutation(num);
+    for (int i = 0; i < result.size(); i++) {
+        cout << result[i] << " ";
+    }
+    cout << endl;
+    return 0;
 }
